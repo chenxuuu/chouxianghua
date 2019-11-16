@@ -8,6 +8,8 @@
 
 接口运行环境为openresty，lua脚本在`lua`文件夹中
 
+注意把`index.html`里的`https://qq.papapoi.com/ibxdhw`改成自己的接口链接
+
 直接访问`index.html`即可
 
 ## 词库
