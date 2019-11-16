@@ -11,7 +11,7 @@ local function utf8ToTable(str)
 end
 
 local function getpinyin(s)
-    return table.concat(pinyin(s,true))
+    return table.concat(pinyin(s,true,true))
 end
 
 return function(s)

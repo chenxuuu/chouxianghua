@@ -424,6 +424,7 @@ local emojis = {
 ["bao"] = "‍🐆",
 ["lao"] = "‍👴",
 ["po"] = "‍🎢",
+["shan"] = "‍🏔",
 }
 
 return emojis
