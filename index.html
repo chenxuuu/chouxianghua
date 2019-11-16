@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>抽象话生成器 网页版</title>
+
+    <meta name="description" content="Source code generated using layoutit.com">
+    <meta name="author" content="LayoutIt!">
+
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+
+</head>
+
+<body>
+
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+                <h3>
+                    抽象话生成器 网页版
+                </h3>
+                <div class="alert alert-warning alert-dismissable">
+                    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">
+                        ×
+                    </button>
+                    <h4>
+                        注意！
+                    </h4>生成时请注意温文儒雅。
+                </div>
+                <div class="form-group">
+                    <label for="imei">
+                        要转换的语句
+                    </label>
+                    <input type="text" class="form-control" id="rawText">
+                </div>
+                <button class="btn btn-primary btn-block btn-outline-primary" onclick="getResult()">
+                    生成抽象话
+                </button>
+                <div class="form-group">
+                    <label for="imei">
+                        转换结果
+                    </label>
+                    <input type="text" class="form-control" id="resultText">
+                </div>
+                <button class="btn btn-primary btn-block btn-outline-primary" id="d_clip_button" data-clipboard-target="#resultText">
+                    复制结果
+                </button>
+                <br /><br /><br />
+            </div>
+        </div>
+    </div>
+    <br><br><br><br>
+    by <a href="https://www.chenxublog.com/" target="_blank">晨旭</a> | 基于 openresty （Lua脚本） |
+    <a href="https://github.com/chenxuuu/chouxianghua" target="_blank">GitHub源码（欢迎star）</a>
+    <script src="js/jquery.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/scripts.js"></script>
+    <script>
+        function getResult() {
+            document.getElementById("resultText").value = "生成中，请稍后。。。";
+            $.get("https://qq.papapoi.com/ibxdhw?s=" + document.getElementById('rawText').value, function (result) {
+                document.getElementById("resultText").value = result;
+            });
+        }
+    </script>
+    <script type="text/javascript" src="js/clipboard.min.js"></script>
+    <script>
+        var btn = document.getElementById('d_clip_button');
+        var clipboard = new ClipboardJS(btn);
+        clipboard.on('success', function (e) {
+            alert("复制成功~快拿去分享吧~");
+        });
+        clipboard.on('error', function (e) {
+            alert("复制失败了呢，你还是手动复制吧");
+        });
+    </script>
+</body>
+
+</html>
