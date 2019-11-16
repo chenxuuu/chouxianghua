@@ -6886,7 +6886,7 @@ local dictionary = {
     ["545f"] = "juǎn",-- 呟 */
     ["5460"] = "pěn",-- 呠 */
     ["5461"] = "wěn,mǐn",-- 呡 */
-    ["5462"] = "ní,ne",-- 呢 */
+    ["5462"] = "ne",-- 呢 */
     ["5463"] = "móu",-- 呣 */
     ["5464"] = "líng",-- 呤 */
     ["5465"] = "rán",-- 呥 */
@@ -26307,7 +26307,7 @@ function Pinyin (ustring, flat, keepNull)
                 table.insert(stringArray, pinyin)
             else
                 if keepNull then
-                    table.insert(stringArray, "")
+                    table.insert(stringArray, singleAlpha)
                 end
             end
         else
