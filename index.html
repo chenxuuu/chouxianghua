@@ -46,20 +46,17 @@
                     </label>
                     <input type="text" class="form-control" id="resultText">
                 </div>
-                <button class="btn btn-primary btn-block btn-outline-primary" id="d_clip_button" data-clipboard-target="#resultText">
+                <button class="btn btn-primary btn-block btn-outline-primary" id="d_clip_button"
+                    data-clipboard-target="#resultText">
                     复制结果
                 </button>
                 <br /><br /><br />
             </div>
         </div>
     </div>
-    <script src="https://utteranc.es/client.js"
-        repo="chenxuuu/chouxianghua"
-        issue-number="1"
-        theme="github-light"
-        crossorigin="anonymous"
-        async>
-	</script>
+    <script src="https://utteranc.es/client.js" repo="chenxuuu/chouxianghua" issue-number="1" theme="github-light"
+        crossorigin="anonymous" async>
+        </script>
     by <a href="https://www.chenxublog.com/" target="_blank">晨旭</a> | 基于 openresty （Lua脚本） |
     <a href="https://github.com/chenxuuu/chouxianghua" target="_blank">GitHub源码（欢迎star）</a>
     <script src="https://cdn.staticfile.org/jquery/3.4.1/jquery.min.js"></script>
@@ -82,6 +79,15 @@
         clipboard.on('error', function (e) {
             alert("复制失败了呢，你还是手动复制吧");
         });
+    </script>
+    <script>
+        var _hmt = _hmt || [];
+        (function () {
+            var hm = document.createElement("script");
+            hm.src = "https://hm.baidu.com/hm.js?5762197b261e8aa1c5033c7d7b146ecd";
+            var s = document.getElementsByTagName("script")[0];
+            s.parentNode.insertBefore(hm, s);
+        })();
     </script>
 </body>
 
