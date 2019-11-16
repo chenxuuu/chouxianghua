@@ -26242,7 +26242,7 @@ local accentMap = {
     [""] = "m2",
 }
 
-local bit = require("chouxiang.bit")
+local bit = require("bit")
 
 function Utf8to32(utf8str)
     assert(type(utf8str) == "string")

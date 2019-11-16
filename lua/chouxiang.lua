@@ -1,6 +1,6 @@
 --抽象话
-local emoji = require("chouxiang.emoji")
-local pinyin = require("chouxiang.pinyin")
+local emoji = require("emoji")
+local pinyin = require("pinyin")
 
 local function utf8ToTable(str)
     local tab = {}
