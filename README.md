@@ -1,10 +1,10 @@
 # chouxianghua
 
+[https://cxh.papapoi.com/](https://cxh.papapoi.com/)
+
 抽象话生成器，一键生成抽象话，附带telegram机器人生成抽象话功能
 
 telegram内，@chouxiangbot即可说抽象话
-
-[https://qq.papapoi.com/cxh](https://qq.papapoi.com/cxh)
 
 ## 搭建
 
