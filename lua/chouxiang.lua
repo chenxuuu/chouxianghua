@@ -1,35 +1,58 @@
---抽象话
-local emoji = require("emoji")
-local pinyin = require("pinyin")
+package.path = package.path..";/www/wwwroot/qq.papapoi.com/chouxiang/?.lua"
 
-local function utf8ToTable(str)
-    local tab = {}
-    for uchar in string.gmatch(str, "[%z\1-\127\194-\244][\128-\191]*") do
-        tab[#tab + 1] = uchar
-    end
-    return tab
-end
-
-local function getpinyin(s)
-    return table.concat(pinyin(s,true,true))
-end
-
-return function(s)
-    local data = utf8ToTable(s)
-    local now = 1
-    local result = {}
-    while now <= #data do
-
-        if now < #data and emoji[getpinyin(data[now]..data[now+1])] then
-            table.insert(result,emoji[getpinyin(data[now]..data[now+1])])
-            now = now + 2
-        elseif emoji[getpinyin(data[now])] then
-            table.insert(result,emoji[getpinyin(data[now])])
-            now = now + 1
-        else
-            table.insert(result,data[now])
-            now = now + 1
+--如果有post，那就是telegram请求
+local status, postData= pcall(function()
+    ngx.req.read_body()
+    return ngx.req.get_body_data()
+end)
+if status and postData and false then--想打开telegram机器人功能，就把这里的false去掉
+    function string.utf8ToTable(str)
+        local tab = {}
+        for uchar in string.gmatch(str, "[%z\1-\127\194-\244][\128-\191]*") do
+            tab[#tab + 1] = uchar
         end
+        return tab
     end
-    return table.concat(result)
+    function urlEncode(str)
+        local t = str:utf8ToTable()
+        for i = 1, #t do
+            if #t[i] == 1 then
+                t[i] = string.gsub(string.gsub(t[i], "([^%w_%*%.%- ])", function(c) return string.format("%%%02X", string.byte(c)) end), " ", "+")
+            else
+                t[i] = string.gsub(t[i], ".", function(c) return string.format("%%%02X", string.byte(c)) end)
+            end
+        end
+        return table.concat(t)
+    end
+
+    local JSON = require("JSON")
+    local tgmsg = JSON:decode(postData)
+    local response = JSON:encode({
+            {
+                ["type"] = "article",
+                id = "001",
+                title = "result",
+                input_message_content = {
+                    message_text = "test",
+                },
+            },
+        })
+    local hc = require('httpclient').new()
+    --key换成自己的
+    local res = hc:get("https://api.telegram.org/bot改成你的key/answerInlineQuery?inline_query_id="..tgmsg.inline_query.id.."&results="..urlEncode(response))
+    if not res.body then
+        ngx.say([[{"error":"]]..res.err..[["}]])
+    else
+        ngx.say(res.body)
+    end
+    return
 end
+--telegram机器人功能结束
+
+local s = ngx.req.get_uri_args()["s"]
+if not s or s:len() == 0 then
+    ngx.say("请输入要转换的话")
+    return
+end
+local ix = require("chouxiang")
+ngx.say(ix(s))
