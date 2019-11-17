@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh-cn">
 
 <head>
     <meta charset="utf-8">
@@ -8,8 +8,8 @@
 
     <title>抽象话生成器 网页版</title>
 
-    <meta name="description" content="Source code generated using layoutit.com">
-    <meta name="author" content="LayoutIt!">
+    <meta name="description" content="一键生成抽象话">
+    <meta name="author" content="chenxuuu">
 
     <link href="https://cdn.staticfile.org/twitter-bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet">
 
@@ -24,9 +24,6 @@
                     抽象话生成器 网页版
                 </h3>
                 <div class="alert alert-warning alert-dismissable">
-                    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">
-                        ×
-                    </button>
                     <h4>注意！</h4>
                     生成时请注意温文儒雅。<br/>
                     telegram里@chouxiangbot也可以生成抽象话
@@ -35,7 +32,7 @@
                     <label for="imei">
                         要转换的语句
                     </label>
-                    <input type="text" class="form-control" id="rawText">
+                    <input type="text" class="form-control" id="rawText" autofocus placeholder="输入你要转换的语句">
                 </div>
                 <button class="btn btn-primary btn-block btn-outline-primary" onclick="getResult()">
                     生成抽象话
@@ -63,10 +60,16 @@
     <script src="https://cdn.staticfile.org/twitter-bootstrap/4.0.0/js/bootstrap.min.js"></script>
     <script>
         function getResult() {
-            document.getElementById("resultText").value = "生成中，请稍后。。。";
-            $.get("https://qq.papapoi.com/ibxdhw?s=" + document.getElementById('rawText').value, function (result) {
-                document.getElementById("resultText").value = result;
-            });
+            if(document.getElementById('rawText').value == ""){
+                document.getElementById("resultText").value = "👇🈹🌶里转🈳7⃣呢¿敲🐔🈹字8⃣❕";
+            }
+            else
+            {
+                document.getElementById("resultText").value = "生成中，请稍后。。。";
+                $.get("https://qq.papapoi.com/ibxdhw?s=" + document.getElementById('rawText').value, function (result) {
+                    document.getElementById("resultText").value = result;
+                });
+            }
         }
     </script>
     <script type="text/javascript" src="https://cdn.staticfile.org/clipboard.js/2.0.4/clipboard.min.js"></script>
