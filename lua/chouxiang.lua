@@ -19,11 +19,10 @@ return function(s)
     local now = 1
     local result = {}
     while now <= #data do
-
-        if now < #data and emoji[getpinyin(data[now]..data[now+1])] then
+        if now < #data and data[now]:len() > 1 and emoji[getpinyin(data[now]..data[now+1])] then
             table.insert(result,emoji[getpinyin(data[now]..data[now+1])])
             now = now + 2
-        elseif emoji[getpinyin(data[now])] then
+        elseif emoji[getpinyin(data[now])] and data[now]:len() > 1 then
             table.insert(result,emoji[getpinyin(data[now])])
             now = now + 1
         else
