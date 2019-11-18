@@ -59,18 +59,14 @@
     <script src="https://cdn.staticfile.org/jquery/3.4.1/jquery.min.js"></script>
     <script src="https://cdn.staticfile.org/twitter-bootstrap/4.0.0/js/bootstrap.min.js"></script>
     <script>
-        lastText = "";
         function getResult() {
             if(document.getElementById('rawText').value == ""){
                 document.getElementById("resultText").value = "👇🈹🌶里转🈳7⃣呢¿敲🐔🈹字8⃣❕";
             }
-            else if(lastText != document.getElementById('rawText').value)
+            else
             {
                 document.getElementById("resultText").value = "生成中，请稍候。。。";
-                lastText = document.getElementById('rawText').value;
-                $.get("https://qq.papapoi.com/ibxdhw?s=" + document.getElementById('rawText').value, function (result) {
-                    document.getElementById("resultText").value = result;
-                });
+                document.getElementById("resultText").value = chouxiang(document.getElementById('rawText').value);
             }
         }
     </script>
@@ -98,6 +94,7 @@
         if(location.search=="")
             location.href='https://cxh.papapoi.com/?'+Math.random();
     </script>
+    <script type="text/javascript" src="js/cxh.js"></script>
 </body>
 
 </html>
