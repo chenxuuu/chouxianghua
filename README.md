@@ -6,11 +6,17 @@
 
 telegram内，@chouxiangbot即可说抽象话
 
-## 搭建
+## 网页版
+
+网页版使用纯js实现功能。
+
+## 搭建telegram机器人功能
 
 接口运行环境为openresty，lua脚本在`lua`文件夹中
 
 更改`run.lua`第一行文件位置为你文件夹的路径
+
+按`run.lua`里的注释，更改相应的key和配置
 
 在`openresty`配置里加上你lua文件的指向配置（需要自己改路径）：
 
@@ -22,15 +28,7 @@ location /chouxiang {
 }
 ```
 
-把`index.html`里的`https://qq.papapoi.com/ibxdhw`改成自己的接口链接
-
-直接访问`index.html`即可
-
-## telegram机器人功能
-
-按`run.lua`里的注释，更改相应的key和配置
-
-在将你的机器人webhook接口改为你正在使用的网址
+在将你的机器人webhook接口改为你配置的接口网址
 
 ## 词库
 
