@@ -34,7 +34,7 @@
                     </label>
                     <input type="text" class="form-control" id="rawText" autofocus placeholder="输入你要转换的语句">
                 </div>
-                <button class="btn btn-primary btn-block btn-outline-primary" onclick="getResult()">
+                <button class="btn btn-primary btn-block btn-outline-primary" onclick="getResult()" id="create">
                     生成抽象话
                 </button>
                 <div class="form-group">
@@ -59,6 +59,8 @@
     <script src="https://cdn.staticfile.org/jquery/3.4.1/jquery.min.js"></script>
     <script src="https://cdn.staticfile.org/twitter-bootstrap/4.0.0/js/bootstrap.min.js"></script>
     <script>
+        $("#create").attr({"disabled":"disabled"});
+        $("#create").text("加载中，请稍后。。。");
         function getResult() {
             if(document.getElementById('rawText').value == ""){
                 document.getElementById("resultText").value = "👇🈹🌶里转🈳7⃣呢¿敲🐔🈹字8⃣❕";
@@ -94,7 +96,15 @@
         if(location.search=="")
             location.href='https://cxh.papapoi.com/?'+Math.random();
     </script>
-    <script type="text/javascript" src="js/cxh.js"></script>
+    <script>
+            var _hmt = _hmt || [];
+            (function () {
+                var hm = document.createElement("script");
+                hm.src = "js/cxh.js";
+                var s = document.getElementsByTagName("script")[0];
+                s.parentNode.insertBefore(hm, s);
+            })();
+    </script>
 </body>
 
 </html>

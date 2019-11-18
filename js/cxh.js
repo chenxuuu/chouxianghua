@@ -29,4 +29,5 @@ function chouxiang(s) {
     return cxresult;
 }
 
-
+$("#create").removeAttr("disabled");
+$("#create").text("生成抽象话");
