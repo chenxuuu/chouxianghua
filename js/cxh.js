@@ -6,7 +6,7 @@ function getPinyin(s) {
     if(pinyin[s] != undefined)
         return pinyin[s]
     else
-        return "";
+        return "none";
 }
 function chouxiang(s) {
     var reg=/.{1}/g,rs=s.match(reg),h=[];
@@ -15,9 +15,10 @@ function chouxiang(s) {
     });
     var cxresult = "";
     for (let index = 0; index < h.length; index++) {
+        console.log(h[index]);
         if(index <h.length && emoji[getPinyin(h[index])+getPinyin(h[index+1])] != undefined) {
             cxresult+=emoji[getPinyin(h[index])+getPinyin(h[index+1])];
-            index+=1;
+            index++;
         }
         else if(emoji[getPinyin(h[index])] != undefined) {
             cxresult+=emoji[getPinyin(h[index])];
