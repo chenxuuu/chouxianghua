@@ -47,6 +47,16 @@
                     data-clipboard-target="#resultText">
                     复制结果
                 </button>
+                <br/>
+                <div class="form-group">
+                    <label for="imei">
+                        新功能：还原抽象话到拼音（只支持还原本工具转换的结果）
+                    </label>
+                    <input type="text" class="form-control" id="chouxiangText">
+                </div>
+                <button class="btn btn-primary btn-block btn-outline-primary" onclick="retrenResult()">
+                    还原抽象话到拼音
+                </button>
                 <br /><br /><br />
             </div>
         </div>
@@ -54,7 +64,7 @@
     <script src="https://utteranc.es/client.js" repo="chenxuuu/chouxianghua" issue-number="1" theme="github-light"
         crossorigin="anonymous" async>
         </script>
-    by <a href="https://www.chenxublog.com/" target="_blank">晨旭</a> | 基于 openresty （Lua脚本） |
+    by <a href="https://www.chenxublog.com/" target="_blank">晨旭</a> |
     <a href="https://github.com/chenxuuu/chouxianghua" target="_blank">GitHub源码（欢迎star）</a>
     <script src="https://cdn.staticfile.org/jquery/3.4.1/jquery.min.js"></script>
     <script src="https://cdn.staticfile.org/twitter-bootstrap/4.0.0/js/bootstrap.min.js"></script>
@@ -69,6 +79,16 @@
             {
                 document.getElementById("resultText").value = "生成中，请稍候。。。";
                 document.getElementById("resultText").value = chouxiang(document.getElementById('rawText').value);
+            }
+        }
+        function retrenResult() {
+            if(document.getElementById('chouxiangText').value == ""){
+                document.getElementById("resultText").value = "你搁那里转空气呢？敲几个字吧！";
+            }
+            else
+            {
+                document.getElementById("resultText").value = "还原中，请稍候。。。";
+                document.getElementById("resultText").value = dechouxiang(document.getElementById('chouxiangText').value);
             }
         }
     </script>
@@ -99,7 +119,7 @@
     <script>
         (function () {
             var hm = document.createElement("script");
-            hm.src = "https://chenxuuu.gitee.io/chouxianghua/js/cxh.js";
+            hm.src = "js/cxh.js";
             var s = document.getElementsByTagName("script")[0];
             s.parentNode.insertBefore(hm, s);
         })();
