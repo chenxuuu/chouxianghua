@@ -26143,7 +26143,7 @@ local dictionary = {
 }
 
 function Pinyin (ustring, flat, keepNull)
-    return dictionary[ustring]
+    return dictionary[ustring] or ustring
 end
 
 --print(Pinyin("你好，世界！Hello World!", true))

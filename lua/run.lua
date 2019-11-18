@@ -27,13 +27,16 @@ if status and postData and false then--想打开telegram机器人功能，就把
 
     local JSON = require("JSON")
     local tgmsg = JSON:decode(postData)
+    local ix = require("chouxiang")
+    local res = ix(tgmsg.inline_query.query)
     local response = JSON:encode({
             {
                 ["type"] = "article",
                 id = "001",
-                title = "result",
+                title = "你要的抽象话",
+                description = res:sub(1,15),
                 input_message_content = {
-                    message_text = "test",
+                    message_text = res,
                 },
             },
         })
