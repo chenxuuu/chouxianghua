@@ -10,20 +10,16 @@ local function utf8ToTable(str)
     return tab
 end
 
-local function getpinyin(s)
-    return table.concat(pinyin(s,true,true))
-end
-
 return function(s)
     local data = utf8ToTable(s)
     local now = 1
     local result = {}
     while now <= #data do
-        if now < #data and data[now]:len() > 1 and emoji[getpinyin(data[now]..data[now+1])] then
-            table.insert(result,emoji[getpinyin(data[now]..data[now+1])])
+        if now < #data and data[now]:len() > 1 and emoji[pinyin(data[now])..pinyin(data[now+1])] then
+            table.insert(result,emoji[pinyin(data[now])..pinyin(data[now+1])])
             now = now + 2
-        elseif emoji[getpinyin(data[now])] and data[now]:len() > 1 then
-            table.insert(result,emoji[getpinyin(data[now])])
+        elseif emoji[pinyin(data[now])] and data[now]:len() > 1 then
+            table.insert(result,emoji[pinyin(data[now])])
             now = now + 1
         else
             table.insert(result,data[now])
