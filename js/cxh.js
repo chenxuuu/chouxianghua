@@ -31,8 +31,9 @@ function chouxiang(s) {
 
 function rawPinyin(s) {
     console.log(s);
+    var sr = s;
     for (var index in emoji){
-        if(emoji[index] == s){return index;}
+        if(emoji[index] == s){sr = index;}
     }
     return s;
 }
