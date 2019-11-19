@@ -113,8 +113,8 @@
         })();
     </script>
     <script>
-        if(location.search=="")
-            location.href='https://cxh.papapoi.com/?'+Math.random();
+        if(location.search.substring(1)-(new Date()).valueOf() < 1000 * 60)
+            location.href='https://cxh.papapoi.com/?'+(new Date()).valueOf();
     </script>
     <script>
         (function () {
