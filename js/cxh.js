@@ -31,11 +31,18 @@ function chouxiang(s) {
 
 function rawPinyin(s) {
     console.log(s);
-    var sr = s;
+    var sr =[];
     for (var index in emoji){
-        if(emoji[index] == s){sr = index;}
+        if(emoji[index] == s)
+        {
+            console.log(index);
+            sr.push(index);
+        }
     }
-    return s;
+    if(sr.length > 0)
+        return sr.join("/")
+    else
+        return s;
 }
 
 function dechouxiang(s) {
