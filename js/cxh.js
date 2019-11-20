@@ -46,10 +46,8 @@ function rawPinyin(s) {
 }
 
 function dechouxiang(s) {
-    var h=[];
-    for(let v of s){
-        h.push(v);
-    }
+    var splitter = new GraphemeSplitter();
+    var h = splitter.splitGraphemes(s);
     var cxresult=[];
     for (let index = 0; index < h.length; index++) {
         cxresult.push(rawPinyin(h[index]));
