@@ -113,16 +113,6 @@
         })();
     </script>
     <script>
-        if(location.search.substring(1)-(new Date()).valueOf() < -1000 * 60)
-        {
-            if(window.location.href.indexOf("?") < 0)
-                location.href = window.location.href+"?"+(new Date()).valueOf();
-            else
-                location.href = window.location.href.substring(0,window.location.href.indexOf("?")+1)+(new Date()).valueOf();
-        }
-
-    </script>
-    <script>
         (function () {
             var hm = document.createElement("script");
             hm.src = "https://chenxuuu.gitee.io/chouxianghua/js/grapheme-splitter.js";

@@ -57,3 +57,9 @@ function dechouxiang(s) {
 
 $("#create").removeAttr("disabled");
 $("#create").text("生成抽象话");
+
+
+if(location.search.substring(1)-(new Date()).valueOf() < -1000 * 60)
+{
+    location.href = "https://cxh.papapoi.com/?"+(new Date()).valueOf();
+}
